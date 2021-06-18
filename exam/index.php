@@ -13,37 +13,56 @@ require "courses/logique.php";
   </head>
 <body>
   <?php  
-  foreach($courses as $course){?>
-  <p><?php echo $course['description']; ?></p>
-  <button>
-    <?php 
-      if($course['deja_achete']){
-        echo "Acheté";
-      }else{
-        echo "A acheter";
+    foreach($courses as $course){
+      if($isForEdit){
+      ?>
+      <form method="POST">
+          <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
+          <input type="hidden" name="edit" value="edit">
+          <input type="text" name="description_edit" placeholder= <?php echo $course['description']?>>
+          <input type="submit" value="Edit"> 
+      </form>
+      <?php } ?>
+      <p><?php echo $course['description']; ?></p>
+      <form method="POST">
+        <input type="hidden" name="edit" value="editStart">
+        <input type="submit" value="Edit">
+      </form> 
+
+
+
+
+      <?php if($course['deja_achete']){
+        $class = "dejaAchete";
+        $value = "Acheté";
       }
-    ?>
-  </button>
-  <form method="POST">
-      <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
-      <input type="hidden" name="delete" value="delete">
-      <input type="submit" value="supprimer"> 
-  </form>
+      else{
+        $class = "pasEncoreAchete";
+        $value = "A acheter";
+      }
+      ?>
+      <form method="POST">
+          <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
+          <input type="hidden" name="deja_achete" value=<?php echo $course['deja_achete']?>>
+          <input class = "<?php echo $class?>" type="submit" value="<?php echo $value?>"> 
+      </form>
+        
+      
+      <form method="POST">
+          <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
+          <input type="hidden" name="delete" value="delete">
+          <input type="submit" value="supprimer"> 
+      </form>
 
-  <form method="POST">
-      <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
-      <input type="hidden" name="edit" value="edit">
-      <input type="text" name="description_edit" placeholder= <?php echo $course['description']?>>
-      <input type="submit" value="Edit"> 
-  </form>
-  <?php } ?>
-  <br>
-  <form method="POST">
-    <input type="text" name="description" placeholder="Description">
-    <input type="hidden" name="create" value="create">
-    <input type="submit" value="Add course"> 
-  <form>
-
+      
+      <?php } ?>
+      <br>
+      <form method="POST">
+        <input type="text" name="description" placeholder="Description">
+        <input type="hidden" name="create" value="create">
+        <input type="submit" value="Add course"> 
+      <form>
+      
 
 
 
