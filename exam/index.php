@@ -14,7 +14,7 @@ require "courses/logique.php";
 <body>
   <?php  
     foreach($courses as $course){
-      if($isForEdit){
+      if(!empty($_POST['course_id']) && $_POST['course_id']== $course['id']){
       ?>
       <form method="POST">
           <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
@@ -22,10 +22,12 @@ require "courses/logique.php";
           <input type="text" name="description_edit" placeholder= <?php echo $course['description']?>>
           <input type="submit" value="Edit"> 
       </form>
-      <?php } ?>
+      <?php } else{ ?>
       <p><?php echo $course['description']; ?></p>
+      <?php }?>
       <form method="POST">
         <input type="hidden" name="edit" value="editStart">
+        <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
         <input type="submit" value="Edit">
       </form> 
 
@@ -53,7 +55,7 @@ require "courses/logique.php";
           <input type="hidden" name="delete" value="delete">
           <input type="submit" value="supprimer"> 
       </form>
-
+      <br>
       
       <?php } ?>
       <br>
