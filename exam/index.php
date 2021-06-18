@@ -1,6 +1,7 @@
 <?php 
 
 require "courses/logique.php";
+// require "authentification/auth.php";
 ?>
 
 
@@ -9,12 +10,19 @@ require "courses/logique.php";
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
 <body>
+  
+  <div class= "container">
+    
   <?php  
     foreach($courses as $course){
-      if(!empty($_POST['course_id']) && $_POST['course_id']== $course['id']){
+      ?> 
+      <div class="row">
+      
+      <?php if(!empty($_POST['course_id']) && $_POST['course_id']== $course['id']){
       ?>
       <form method="POST">
           <input type="hidden" name="course_id" value=<?php echo $course['id']?>>
@@ -57,14 +65,18 @@ require "courses/logique.php";
       </form>
       <br>
       
-      <?php } ?>
-      <br>
+      </div>
+      <hr>
+      <?php } 
+      
+      ?>
       <form method="POST">
         <input type="text" name="description" placeholder="Description">
         <input type="hidden" name="create" value="create">
         <input type="submit" value="Add course"> 
       <form>
-      
+    </div>
+    
 
 
 
