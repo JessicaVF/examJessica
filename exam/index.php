@@ -101,7 +101,7 @@ require "courses/logique.php";
 
 
 
-
+<!-- 
 
    
  <span>Ma navbar ici</span>                       
@@ -176,4 +176,4 @@ require "courses/logique.php";
       <p>c'est la partie bonus/facultative. essentiellement cela doit fonctionner sans utilisateurs, ensuite avec une connexion sur des comptes crées directement via phpmyadmin non-cryptés </p>
       <p>UNIQUEMENT APRES CES DEUX ETAPES FONCTIONNELLES  un module d'inscription et cryptage des mots de passe</p>
 </body>
-</html>
+</html> -->
