@@ -1,13 +1,13 @@
-<!-- <?php
+<?php
 
 
 
 
 $isLoggedIn = false;
-$username = "userone";
 
 
-            if($username){
+
+            if(){
                 $isLoggedIn = true;
 
             }
@@ -20,4 +20,4 @@ $username = "userone";
 
 
 
-?> -->
+?>

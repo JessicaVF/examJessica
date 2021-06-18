@@ -1,5 +1,37 @@
 <?php 
 
+if (!empty($_GET['username'])){
+  $username = $_GET['username'];
+  
+  require_once dirname(__FILE__)."/../access/db.php";
+        $pdo= getPdo();
+        $query = $pdo->query('SELECT * FROM users WHERE username=:username');
+        $query->execute(['username'=>$username]);
+        $user= $result->fetch();
+        var_dump($user);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // on verifie que POST a bien été initialisée aux bons indexs
 //on verifie qu'aucune des deux chaines de caractere n'est "" 
@@ -30,7 +62,12 @@
     
           //   echo "Veuillez entrer un username et un password";
 
+            
 
+
+
+
+  
 
 
 ?>

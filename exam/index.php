@@ -1,7 +1,6 @@
 <?php 
 
 require "courses/logique.php";
-// require "authentification/auth.php";
 ?>
 
 
